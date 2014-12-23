@@ -19,7 +19,7 @@ For multiple containers with different variables use the `env.conf` and pass it 
 ## After Successful Setup, Build & Run ##
 you should be able to...
 
-  - view the userlist on console with `zarfa-admin -l` (you see a `templateuser`, password is `abcde`)
+  - view the userlist on console with `zarafa-admin -l` (you see a `templateuser`, password is `abcde`)
   - access `webapp`, `webaccess` and `phpldapadmin` from your browser and login with `templateuser` account
     - http://domain_or_ip/webapp
     - http://domain_or_ip/webaccess
