@@ -209,7 +209,7 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     echo "[Z-PUSH] Downloading and installing Z-Push"
-    curl http://download.z-push.org/final/2.1/z-push-2.1.3-1892.tar.gz | tar -xz -C /usr/share/
+    curl http://download.z-push.org/final/2.2/z-push-2.2.8.tar.gz | tar -xz -C /usr/share/
 
     mv /usr/share/z-push-* /usr/share/z-push
     mkdir /var/lib/z-push /var/log/z-push
@@ -249,14 +249,14 @@
 
     echo "[APACHE] ENABLING SITES AND 'mod_rewrite'"
     mv /etc/apache2/sites-available/zarafa-webaccess /etc/apache2/sites-available/zarafa-webaccess.conf
-    mv /etc/apache2/sites-available/zarafa-webapp /etc/apache2/sites-available/zarafa-webapp.conf
-    cp /etc/phpldapadmin/apache.conf /etc/apache2/sites-available/phpldapadmin.conf
+    #mv /etc/apache2/sites-available/zarafa-webapp /etc/apache2/sites-available/zarafa-webapp.conf
+    #cp /etc/phpldapadmin/apache.conf /etc/apache2/sites-available/phpldapadmin.conf
 
     # Enabling PhpLDAPadmin, Zarafa Webaccess/Webapp and Z-Push
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     a2ensite zarafa-webaccess
-    a2ensite zarafa-webapp
+    #a2ensite zarafa-webapp
     a2ensite phpldapadmin
     a2ensite z-push
 
@@ -274,7 +274,7 @@
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     echo > /var/www/html/index.html
-    mv /root/windows/zarafaclient* /var/www/html/zarafaclient.msi
+    #mv /root/windows/zarafaclient* /var/www/html/zarafaclient.msi
 
 ################
 # PHPLADPADMIN #

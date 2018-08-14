@@ -1,4 +1,4 @@
-FROM leckerbeef/zarafabase:latest
+FROM leckerbeef/zarafabase:latest7.1
 MAINTAINER Tobias Mandjik <webmaster@leckerbeef.de>
 
 # noninteractive Installation (dont't touch this)
@@ -41,8 +41,12 @@ ENV LB_SSL_LOCATION Springflied
 # uncommented if you have a commercial license
 #ENV LB_ZARAFA_LICENSE 12345123451234512345
 
-# Install additional Software
-RUN DEBIAN_FRONTEND=noninteractive apt-get -q update && apt-get -yqq install ssh fetchmail postfix postfix-ldap amavisd-new clamav-daemon spamassassin razor pyzor slapd ldap-utils phpldapadmin php5-cli php-soap
+# Install additional Software (+ decoders for amavis)
+RUN DEBIAN_FRONTEND=noninteractive apt-get -q update && apt-get -yqq install \
+rsyslog curl ssh fetchmail postfix postfix-ldap amavisd-new clamav-daemon \
+spamassassin razor pyzor slapd ldap-utils phpldapadmin php5-cli php-soap \
+arj bzip2 cabextract cpio file gzip lhasa nomarch pax unrar-free ripole unzip \
+zip zoo rpm2cpio lzop xzdec lzma
 
 # Add configuration files
 ADD /config/amavis/15-content_filter_mode /etc/amavis/conf.d/15-content_filter_mode
@@ -71,12 +75,12 @@ ADD /script/entry.sh /usr/local/bin/entry.sh
 CMD ["/usr/local/bin/entry.sh"]
 
 # Expose Ports
-EXPOSE 10236 236
-EXPOSE 10237 237
-EXPOSE 10022 22
-EXPOSE 10080 80
-EXPOSE 10443 443
-EXPOSE 10389 389
+EXPOSE 236
+EXPOSE 237
+EXPOSE 22
+EXPOSE 80
+EXPOSE 443
+EXPOSE 389
 
 # Set Entrypoint
 ENTRYPOINT ["/bin/bash"]

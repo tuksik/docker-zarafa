@@ -8,7 +8,7 @@ objectClass: organizationalUnit
 objectClass: top
 ou: Templates
 
-dn: uid=templateUser,ou=Templates,dc=REPLACE,dc=ME
+dn: uid=templateUser,ou=Zarafa,dc=REPLACE,dc=ME
 objectClass: posixAccount
 objectClass: top
 objectClass: zarafa-user
@@ -43,4 +43,5 @@ fetchmailProtocol: pop3
 fetchmailSSL: TRUE
 fetchmailServer: pop.hotmail.com
 fetchmailCustom: nokeep fetchall
+fetchmailEnabled: FALSE
 
